@@ -1,20 +1,20 @@
-// Merge sort function
+// Merge sort function.
 function mergeSort(array) {
 	let leftArray, rightArray, mergedArray;
 
 	// Checks and return array if length is less than 2.
 	if (array.length < 2) return array;
 
-	// Divides array into 2 halves.
+	// Deletes and copy all array items into two seperate arrays (leftArray and rightArray).
 	if (array.length % 2 === 0) leftArray = array.splice(0, array.length / 2);
 	else leftArray = array.splice(0, Math.ceil(array.length / 2));
 	rightArray = array.splice(0);
 
-	// The recursive case
+	// The recursive case (Keeps dividing until array length is less than 2).
 	const leftMergeSort = mergeSort(leftArray),
 		rightMergeSort = mergeSort(rightArray);
 
-	// Sort two already sorted arrays into one array
+	// Sort two already sorted arrays into one array.
 	while (leftMergeSort.length && rightMergeSort.length)
 		leftMergeSort[0] < rightMergeSort[0]
 			? array.push(leftMergeSort.shift())
@@ -23,7 +23,7 @@ function mergeSort(array) {
 	/* In case where one array is longer than other in the previous step, 
    the left over item(s) in the longer array (Either leftMergeSort or 
 		rightMergeSort) is concated into one array with mergedArray then returned.
-  */
+		*/
 	mergedArray = array.concat(leftMergeSort, rightMergeSort);
 
 	return mergedArray;
