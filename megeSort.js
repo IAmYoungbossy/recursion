@@ -24,7 +24,7 @@ function mergeSort(array) {
    the left over item(s) in the longer array (Either leftMergeSort or 
 		rightMergeSort) is concated into one array with mergedArray then returned.
   */
-	mergedArray = array.concat(leftArray, rightArray);
+	mergedArray = array.concat(leftMergeSort, rightMergeSort);
 
 	return mergedArray;
 }
